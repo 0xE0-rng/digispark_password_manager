@@ -1,6 +1,7 @@
 #include "DigiKeyboard.h"
 
 int analogInPin2 = 1;
+int cooldown = 5;
 
 void setup() {
   // don't need to set anything up to use DigiKeyboard
@@ -26,11 +27,10 @@ void loop() {
     }
     time_since = timer - last_press;
 
-    if (to_do && pressing && time_since < 5){
+    if (to_do && pressing && time_since < cooldown){
       to_do = false;
       pressed = pressed + 1;
-     // write(pressed);
-    }else if (!pressing && pressed > 0 && time_since > 5){
+    }else if (!pressing && pressed > 0 && time_since > cooldown){
       print_pwd(pressed);
       pressed = 0;
     }
