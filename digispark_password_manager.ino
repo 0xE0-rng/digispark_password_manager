@@ -6,9 +6,9 @@ void setup() {
   // don't need to set anything up to use DigiKeyboard
 }
 
- String PASSWORDS[] = {"Ug4w&4)J!!", "slot2", "slot3", "slot4", "slot5", "slot6"};
+ String PASSWORDS[] = {"sample_password", "slot2", "slot3", "slot4", "slot5", "slot6"};
 
- 
+
 void loop() {
     static unsigned long timer = 0;
     static unsigned long time_since = 0;
@@ -16,7 +16,7 @@ void loop() {
     static unsigned short pressed = 0;
     static boolean pressing = false;
     static boolean to_do = true;
-    
+
     if(analogRead(analogInPin2) > 100){
       last_press = timer;
       pressing = true;
@@ -34,7 +34,7 @@ void loop() {
       print_pwd(pressed);
       pressed = 0;
     }
-    
+
     timer =  timer + 1;
     DigiKeyboard.delay(100);
 }
